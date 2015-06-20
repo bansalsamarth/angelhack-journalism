@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <!--[if IE 9 ]><html class="ie9"><![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>journext | Users</title>
+    
+        <!-- Vendor CSS -->
+        <link href="/alpha/vendors/animate-css/animate.min.css" rel="stylesheet">
+        <link href="/alpha/vendors/sweet-alert/sweet-alert.min.css" rel="stylesheet">
+        <link href="/alpha/vendors/material-icons/material-design-iconic-font.min.css" rel="stylesheet">
+        <link href="/alpha/vendors/socicon/socicon.min.css" rel="stylesheet">
+            
+        <!-- CSS -->
+        <link href="/alpha/css/app.min.1.css" rel="stylesheet">
+        <link href="/alpha/css/app.min.2.css" rel="stylesheet">
+        <link href="/css/jquery.bxslider.css" rel="stylesheet" />
+    </head>
+    
+    <body>
+          <%- include ../partials/aheader.ejs %>
+        
+            <section id="content">
+                <div class="container">
+                    <div class="block-header">
+                        <h2><font color="#4285F4"><b>All Users</b></font></h2><h2>Total Users = <%=users.length%></h2>
+                    
+                    </div>
+                    
+            
+
+                    <div class="col-sm-12">
+                        <!-- Margin -->
+                        
+                        <div class="card">
+                          <div class="card-body table-responsive" tabindex="0" style="overflow: hidden; outline: none;">
+                            <table class="table">
+                              <thead>
+                                <tr>
+                                  <td><b>Name</b></td>
+                                  <td><b>Phone</b></td>
+                                  <td><b>Email</b></td>
+                                  <td><b>City</b></td>
+                                  <td><b>State</b></td>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <% for(var i=0; i<users.length; i++) { %>
+                                  <tr>
+                                    <td><%=users[i].profile.name%></td>
+                                    <td><%=users[i].profile.phone%></td>
+                                    <td><a href="mailto:<%=users[i].email%>"><%=users[i].email%></a></td>
+                                    <td><%=users[i].profile.city%></td>
+                                    <td><%=users[i].profile.state%></td>
+                                  </tr>
+                                <% } %>   
+                              </tbody>
+                            </table>
+                          </div>  
+                        </div>   
+                           
+                    </div>
+
+                  
+                </div>
+            </section>
+        
+
+          <%- include ../partials/afooter.ejs %>
+        <script src="/alpha/js/jquery-2.1.1.min.js"></script>
+        <script src="/alpha/js/bootstrap.min.js"></script>
+        
+        <script src="/alpha/vendors/nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="/alpha/vendors/auto-size/jquery.autosize.min.js"></script>
+        <script src="/alpha/vendors/waves/waves.min.js"></script>
+        <script src="/alpha/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+        <script src="/alpha/vendors/sweet-alert/sweet-alert.min.js"></script>
+        
+                
+        <script src="/alpha/js/functions.js"></script>
+        <script src="/alpha/js/demo.js"></script>
+    
+    
+    </body>
+</html>
