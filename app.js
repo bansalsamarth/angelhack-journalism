@@ -118,6 +118,7 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
 app.post('/upload', [ multer(), logicController.convert]);
 app.get('/upload', logicController.upload);
 app.get('/choose', logicController.choose);
+app.get('/graph/:id', logicController.graph);
 
 /**
  * OAuth authentication routes. (Sign in)

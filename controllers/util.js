@@ -84,3 +84,13 @@ exports.upload = function(req, res) {
 exports.choose = function(req, res) {
 	res.render('util/visual');
 };
+
+exports.graph = function(req, res) {
+	console.log(req.params, req.query)
+	if(req.params.id){
+			res.render('graph/'+req.params.id);
+	} else {
+		res.send('graph not found')
+	}
+};
+
