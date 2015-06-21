@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="csrf-token" content="<%=_csrf%>">
+	<title>Forecast.io</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+</head>
+
+<body>
+	<form method="get">
+		<input type="text" name="lat" id="lat"/>
+		<input type="text" name="lon" id="lon"/>
+		<input type="submit" id="submit">
+	</form>
+
+	<% if(data) {%>
+		<div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" role="tablist">
+				<% if(data.minutely) {%>
+					<li role="presentation" class="active"><a href="#minutely" aria-controls="minutely" role="tab" data-toggle="tab">Minutely</a></li>
+				<% } %>
+				<% if(data.hourly) {%>
+					<li role="presentation"><a href="#hourly" aria-controls="profile" role="tab" data-toggle="tab">Hourly</a></li>
+				<% } %>
+				<% if(data.weekly) {%>
+					<li role="presentation"><a href="#weekly" aria-controls="messages" role="tab" data-toggle="tab">Weekly</a></li>
+				<% } %>
+				<% if(data.daily) {%>
+					<li role="presentation"><a href="#daily" aria-controls="messages" role="tab" data-toggle="tab">Daily</a></li>
+				<% } %>
+			</ul>
+
+			<!-- Tab panes -->
+			<div class="tab-content">
+				<% if(data.minutely) {%>
+					<div role="tabpanel" class="tab-pane active" id="minutely">
+						<table>
+							<thead>
+								<tr>
+									<td> Time </td>
+									<td> Temperature </td>
+									<td> Humidity </td>
+									<td> Pressure </td>
+								</tr>
+							</thead>
+							<% for(var i=0; i<data.minutely.data.length; i++) { %>
+								<tr> 
+									<td> <%= data.minutely.data[i].time %> </td>
+									<td> <%= data.minutely.data[i].temperature %></td>
+									<td> <%= data.minutely.data[i].humidity %></td>
+									<td> <%= data.minutely.data[i].pressure %></td>
+								</tr>
+							<% } %>
+						</table>
+					</div>
+				<% } %>
+				<% if(data.hourly) {%>
+					<div role="tabpanel" class="tab-pane" id="hourly">
+						<table>
+							<thead>
+								<tr>
+									<td> Time </td>
+									<td> Temperature </td>
+									<td> Humidity </td>
+									<td> Pressure </td>
+								</tr>
+							</thead>
+
+							<% for(var i=0; i<data.hourly.data.length; i++) { %>
+								<tr> 
+									<td> <%= data.hourly.data[i].time %> </td>
+									<td> <%= data.hourly.data[i].temperature %></td>
+									<td> <%= data.hourly.data[i].humidity %></td>
+									<td> <%= data.hourly.data[i].pressure %></td>
+								</tr>
+							<% } %>
+						</table>
+					</div>
+				<% } %>				
+				<% if(data.weekly) {%>
+					<div role="tabpanel" class="tab-pane" id="weekly">						
+						<table>
+							<thead>
+								<tr>
+									<td> Time </td>
+									<td> Temperature </td>
+									<td> Humidity </td>
+									<td> Pressure </td>
+								</tr>
+							</thead>
+
+							<% for(var i=0; i<data.weekly.data.length; i++) { %>
+								<tr> 
+									<td> <%= data.weekly.data[i].time %> </td>
+									<td> <%= data.weekly.data[i].temperature %></td>
+									<td> <%= data.weekly.data[i].humidity %></td>
+									<td> <%= data.weekly.data[i].pressure %></td>
+								</tr>
+							<% } %>
+						</table>
+					</div>
+				<% } %>		
+				<% if(data.daily) {%>
+					<div role="tabpanel" class="tab-pane" id="daily">						
+						<table>
+							<thead>
+								<tr>
+									<td> Time </td>
+									<td> Humidity </td>
+									<td> Pressure </td>
+								</tr>
+							</thead>
+							<% for(var i=0; i<data.daily.data.length; i++) { %>
+								<tr> 
+									<td> <%= data.daily.data[i].time %> </td>
+									<td> <%= data.daily.data[i].humidity %></td>
+									<td> <%= data.daily.data[i].pressure %></td>
+								</tr>
+							<% } %>
+						</table>
+					</div>
+				<% } %>
+			</div>
+
+		</div>
+	<% } %>
+
+		<script type="text/javascript" src="/forecastio/js/forecastio.js"></script>
+		<script src="/alpha/js/jquery-2.1.1.min.js"></script>
+		<script src="/alpha/js/bootstrap.min.js"></script>
+	</body>
+</html>

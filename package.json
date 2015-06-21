@@ -25,6 +25,7 @@
     "express-session": "^1.11.3",
     "express-validator": "^2.12.1",
     "fbgraph": "^1.0.0",
+    "forecastio": "0.2.0",
     "github-api": "^0.10.6",
     "instagram-node": "^0.5.7",
     "jade": "^1.11.0",

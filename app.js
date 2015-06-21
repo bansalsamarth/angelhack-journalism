@@ -29,6 +29,7 @@ var homeController = require('./controllers/home');
 var userController = require('./controllers/user');
 var contactController = require('./controllers/contact');
 var logicController = require('./controllers/util');
+var apiController = require('./controllers/api');
 
 /**
  * API keys and Passport configuration.
@@ -111,7 +112,6 @@ app.post('/account/password', passportConf.isAuthenticated, userController.postU
 app.post('/account/delete', passportConf.isAuthenticated, userController.postDeleteAccount);
 app.get('/account/unlink/:provider', passportConf.isAuthenticated, userController.getOauthUnlink);
 
-
 /**
  * App Logic
  */
@@ -120,6 +120,8 @@ app.get('/upload', logicController.upload);
 app.get('/choose', logicController.choose);
 app.get('/graph/:id', logicController.graph);
 
+app.get('/api/forecastio', apiController.getForecastio);
+app.get('/api', apiController.getList);
 /**
  * OAuth authentication routes. (Sign in)
  */
