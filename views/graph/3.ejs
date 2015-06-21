@@ -50,16 +50,16 @@
                             </div>
 
                              <div class="card-body card-padding">
-                                <form id="msform" method="post" enctype="multipart/form-data">
+                            <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
                                 <!-- fieldsets -->
                                 <fieldset>
                                     <h2 class="fs-title">Upload the excel</h2>
                                     <!-- <h3 class="fs-subtitle">This is step 1</h3> -->
-                                    <input type="file" name="file" />
-                                    <input type="hidden" name="_csrf" value="<%=_csrf%>">
-                                        <input type="submit" />
+                                    <input id = "file" type="file" name="file" />
+                                    <input id ="_csrf" type="hidden" name="_csrf" value="<%=_csrf%>">
+                                        <input id="button" type="button" />
                                 </fieldset>
-                                </form>
+                            </form>
                                     </div>
                         </div>
 
@@ -74,11 +74,14 @@
 
           <%- include ../partials/afooter.ejs %>
         <script src="/alpha/js/jquery-2.1.1.min.js"></script>
+         <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
         <script src="/alpha/js/bootstrap.min.js"></script>   
+        <script src="/js/Underscore.js"></script>   
     
 
 <script src="/3/js/external/d3.v3.min.js"></script>
 <script src="/3/js/timeseries.js"></script>
+<script src="/3/js/parse.js"></script>
 <script>
  var timeSeries = new TimeSeries("js/data/nations.json");
 </script>
