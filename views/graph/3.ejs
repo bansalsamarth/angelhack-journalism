@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
     <!--[if IE 9 ]><html class="ie9"><![endif]-->
@@ -33,38 +31,41 @@
                         <div class="card">
                             <p id="chart"></p>
                         </div>
-                        <div class="card">
-                              <div class="lc-block toggled" id="l-login">
-                                <%- include ../partials/aflash.ejs %>
-                                    login
-                                </div>
-                                
-                                <!-- Register -->
-                                <div class="lc-block" id="l-register">
-                                            register
-                                </div>
-                        </div>
+                    </div>  
+                    <div class="col-sm-6" style="text-align:center">
                         <div class="card">
                             <div class="card-header ch-alt">
-                                <h2><b>Visualize your excel.</b></h2>
+                                <h2><b>Visualize your data</b></h2>
                             </div>
 
                              <div class="card-body card-padding">
                             <form id="uploadForm" enctype="multipart/form-data" method="post" action="/upload">
                                 <!-- fieldsets -->
                                 <fieldset>
-                                    <h2 class="fs-title">Upload the excel</h2>
                                     <!-- <h3 class="fs-subtitle">This is step 1</h3> -->
                                     <input id = "file" type="file" name="file" />
                                     <input id ="_csrf" type="hidden" name="_csrf" value="<%=_csrf%>">
-                                        <input id="button" type="button" />
+                                        <button id="button" type="button" class="btn btn-large">Upload</button>
                                 </fieldset>
                             </form>
                                     </div>
-                        </div>
+                        </div>          
+                    </div>
 
-                        
-                        
+                    <div class="col-sm-6" style="text-align:center">
+                        <div class="card">
+
+                            <div class="card-body card-padding">
+                        <div><b>Generate Embeddable Link</b></div>
+                        <input type="checkbox"> Integrate Analytics (Powered by <a href="https://branch.io">branch.io</a>)
+                        <div class="input-group">
+                          <input type="text" class="form-control" value='<iframe width="560" height="315" src="https://journext.io/embed/x4KngXtOlNo" frameborder="0" allowfullscreen></iframe>'>
+                          <div class="input-group-btn">
+                             <button class="btn btn-default" type="button">Copy</button>
+                          </div>
+                        </div>
+                            </div>
+                        </div>          
                     </div>
 
                     
@@ -83,7 +84,7 @@
 <script src="/3/js/timeseries.js"></script>
 <script src="/3/js/parse.js"></script>
 <script>
- var timeSeries = new TimeSeries("js/data/nations.json");
+ var timeSeries = new TimeSeries("/3/js/data/nations.json");
 </script>
     </body>
 </html>

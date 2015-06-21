@@ -117,8 +117,8 @@ app.get('/account/unlink/:provider', passportConf.isAuthenticated, userControlle
  */
 app.post('/upload', [ multer(), logicController.convert]);
 app.get('/upload', logicController.upload);
-app.get('/choose', logicController.choose);
-app.get('/graph/:id', logicController.graph);
+app.get('/visualization', logicController.choose);
+app.get('/visualization/:id', logicController.graph);
 
 app.get('/api/forecastio', apiController.getForecastio);
 app.get('/api', apiController.getList);

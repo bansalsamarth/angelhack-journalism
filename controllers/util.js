@@ -10,7 +10,7 @@ var async = require('async');
 exports.convert = function(req, res, next) {
 	if (req.files) {
 		console.log(req.files)
-		var name = req.files.files ? req.files.files.name : req.files.file.name;
+		var name = req.files.file.name;
 		var pat = path.join('uploads/' + name);
 		excelParser.worksheets({
 			inFile: pat
@@ -90,7 +90,7 @@ exports.graph = function(req, res) {
 	if(req.params.id){
 			res.render('graph/'+req.params.id);
 	} else {
-		res.send('graph not found')
+		res.send('Visulization Not Found');
 	}
 };
 
