@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<head>
+  <script src="http://d3js.org/d3.v3.min.js"></script>
+  <script src="http://d3js.org/topojson.v1.min.js"></script>
+  <script src="http://rawgithub.com/markmarkoh/datamaps/master/dist/datamaps.none.min.js"></script>
+  
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+  <div id="country-map" style="height: 500px; width: 600px;"></div>
+  <script src="js/data.js"></script>
+  <script src="js/func.js"></script>
+  <script src="js/parse.js"></script>
+  <script type="text/javascript">
+  	generate_chloropleth(map_data, region, mapLabel, fill_data, projection);
+  </script>
+</body>
+
+</html>
+
+
